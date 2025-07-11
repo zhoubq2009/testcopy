@@ -9,7 +9,7 @@
     <div class="relative mb-6">
       <input
         v-model="searchQuery"
-        placeholder="Enter keyword or question"
+        placeholder="输入关键词或问题"
         class="h-14 text-lg pl-12 pr-20 rounded-2xl border-2 border-gray-200 focus:border-purple-400 shadow-lg w-full focus:outline-none focus:ring-0"
       >
       <Search class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />

@@ -1,37 +1,8 @@
 <template>
   <div class="max-w-6xl mx-auto space-y-8">
-    <!-- Follow/Explore Section -->
+    <!-- Paper Content Section -->
     <div class="flex space-x-8">
       <div class="flex-1">
-        <div class="flex items-center justify-between mb-6">
-          <div class="flex space-x-6">
-            <button
-              v-for="tab in tabs"
-              :key="tab.name"
-              @click="activeTab = tab.name"
-              :class="[
-                'text-lg font-semibold border-b-2 pb-2',
-                activeTab === tab.name
-                  ? 'text-purple-600 border-purple-500'
-                  : 'text-gray-600 border-transparent hover:border-purple-500'
-              ]"
-            >
-              {{ tab.label }}
-            </button>
-          </div>
-          <button class="rounded-full px-4 py-2 border border-gray-300 hover:bg-gray-50 flex items-center">
-            <Plus class="h-4 w-4 mr-2" />
-            Add Subscription
-          </button>
-        </div>
-
-        <p class="text-gray-600 mb-6">
-          Input keywords, let AI filter and summarize latest papers
-        </p>
-
-        <p class="text-sm text-gray-500 mb-8">
-          The following are popular content recommendations, and the recommendations are more accurate after adding subscriptions
-        </p>
 
         <!-- Topic Section -->
         <div class="mb-8">
@@ -41,7 +12,7 @@
               <span class="font-medium">Hardware-Aligned and Natively Trainable Sparse Attention</span>
             </div>
             <button class="text-purple-600 text-sm hover:underline">
-              More topics →
+              更多主题 →
             </button>
           </div>
           <p class="text-sm text-gray-600 mb-6">
@@ -80,11 +51,11 @@
                     <div class="flex items-center space-x-6">
                       <div class="flex items-center space-x-1 text-sm text-gray-500">
                         <Quote class="h-4 w-4" />
-                        <span>Cited {{ paper.cited }}</span>
+                        <span>被引 {{ paper.cited }}</span>
                       </div>
                       <div class="flex items-center space-x-1 text-sm text-gray-500">
                         <Eye class="h-4 w-4" />
-                        <span>Views {{ paper.views }}</span>
+                        <span>浏览 {{ paper.views }}</span>
                       </div>
                     </div>
                     <div class="flex items-center space-x-2">
@@ -109,7 +80,7 @@
           </div>
 
           <button class="w-full mt-4 text-purple-600 hover:underline">
-            Expand all 5 New Papers
+            展开全部 5 篇新论文
           </button>
         </div>
 
@@ -119,7 +90,7 @@
             <TrendingUp class="h-5 w-5 text-orange-500" />
             <span class="font-medium">Hot</span>
           </div>
-          <p class="text-sm text-gray-600 mb-6">Top100 papers viewed in last 7 days</p>
+          <p class="text-sm text-gray-600 mb-6">最近7天浏览量前100的论文</p>
 
           <div class="space-y-4">
             <div
@@ -158,16 +129,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Download, Quote, MessageCircle, Star, Eye, TrendingUp, Plus } from 'lucide-vue-next'
-
-const activeTab = ref('explore')
-
-const tabs = [
-  { name: 'follow', label: 'Follow' },
-  { name: 'explore', label: 'Explore' },
-  { name: 'trend', label: 'Trend' }
-]
+import { Download, Quote, MessageCircle, Star, Eye, TrendingUp } from 'lucide-vue-next'
 
 const papers = [
   {
